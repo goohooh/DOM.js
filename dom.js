@@ -36,7 +36,6 @@
 		 * HTML 문자열일 경우, documentFragment를 생성 하고 개체를 채워 반환
 		 */ 
 		if(typeof params == 'string' && regXContainsTag.test(params)){
-			console.log(currentContext);
 			// documentFragment에는 innerHTML 속성이 없으므로 div를 생성하여 붙인다
 			var divElm = currentContext.createElement('div');
 			divElm.className = 'hippo-doc-frag-wrapper';
@@ -96,4 +95,18 @@
 	// jQuery 처럼 $.fn에 연결되는 것은 실제로 GetOrMakeDom.prototype의 속성이 되고,
 	// GetOrMakeDom 새성자로부터 만들어지는 모든 개체 인스턴스에 상속된다
 	$.fn = GetOrMakeDom.prototype;
+
+	/*
+	each 메서드 만들기
+	 */
+	$.fn.each = function(callback){
+		var len = this.length;
+
+		// 첫번째 인수에 this[i]로 객체 전달, 이어 인자 전달 (i, this[i]) 
+		for(var i = 0; i < len; i++){
+			callback.call(this[i], i, this[i]);
+		}
+		// 객체 반환으로 체이닝 가능
+		return this;
+	}
 })(window);
