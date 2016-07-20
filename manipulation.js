@@ -39,11 +39,21 @@ $.fn.append = function(stringOrObject){
 
 // 자기 자신을 삭제할 때
 $.fn.remove = function() {
-	if ( this.length === 1 ) {
-		return this[0].parentNode.removeChild(this[0]);
-	} else {
-		return this.each(function(key, obj) {
-			obj.parentNode.removeChild(obj);
-		});
-	}
+	return this.each(function(key, obj) {
+		obj.parentNode.removeChild(obj);
+	});
 }
+
+// 모든 자식 Node를 삭제할 때
+$.fn.empty = function() {
+	this.each(function(key, obj){
+		var children = obj.children;
+
+		for (var i = 0; i < children.length; i++){
+			obj.removeChild(children[i]);
+			// console.log(children[i]);
+		}
+	});
+}
+
+
