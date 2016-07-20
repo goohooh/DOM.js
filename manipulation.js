@@ -5,7 +5,7 @@ $.fn.html = function(htmlString) {
 			this.innerHTML = htmlString;
 		});
 	} else {
-		// 인자가 없다면 첫번쨰 개체의 innerHTML 반환
+		// 인자가 없다면 첫번쨰 개체의 innerHTML 반환, getter
 		return this[0].innerHTML
 	}
 }
@@ -35,4 +35,15 @@ $.fn.append = function(stringOrObject){
 			});
 		}
 	})
+}
+
+// 자기 자신을 삭제할 때
+$.fn.remove = function() {
+	if ( this.length === 1 ) {
+		return this[0].parentNode.removeChild(this[0]);
+	} else {
+		return this.each(function(key, obj) {
+			obj.parentNode.removeChild(obj);
+		});
+	}
 }
