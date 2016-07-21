@@ -1,0 +1,28 @@
+{
+  "name": "dom_helper",
+  "version": "1.0.0",
+  "description": "DOM helper like jQuery",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goohooh/DOM.js.git"
+  },
+  "keywords": [
+    "DOM"
+  ],
+  "author": "Seong Pil Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goohooh/DOM.js/issues"
+  },
+  "homepage": "https://github.com/goohooh/DOM.js#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.4",
+    "pump": "^1.0.1"
+  }
+}
