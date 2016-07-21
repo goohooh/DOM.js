@@ -5,10 +5,13 @@ var gulp = require('gulp'),
 
 
 gulp.task('compress', function (cb) {
+	var options = {
+		mangle : false
+	};
   pump([
         gulp.src('src/*.js'),
         concat('dom.js'),
-        uglify(),
+        uglify(options),
         gulp.dest('dist')
     ],
     cb
