@@ -37,7 +37,7 @@ $.fn.append = function(stringOrObject){
 	})
 }
 
-// 선택자 자신을 삭제할 때
+// 자기 자신을 삭제할 때
 $.fn.remove = function() {
 	if (this.length === 1) {
 		this[0].parentNode.removeChild(this[0]);
