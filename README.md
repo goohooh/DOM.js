@@ -42,4 +42,4 @@ $('li').each(function(key, object){
  - `text()` : `html()` 메서드와 유사. 텍스트 노드를 다룬다.
  - `append()`: 인자로 `html | text | dom() | NodeList/HTMLCollection | Node | Array` 전달하여 선택 요소 마지막에 삽입
  - `remove()`: 선택된 객체 자신을 삭제
- - `empty() : 선택된 요소의 모든 자식요소 삭제
+ - `empty()` : 선택된 요소의 모든 자식요소 삭제
