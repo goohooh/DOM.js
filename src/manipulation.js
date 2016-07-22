@@ -50,13 +50,8 @@ $.fn.remove = function() {
 
 // 모든 자식 Node를 삭제할 때
 $.fn.empty = function() {
-	this.each(function(key, obj){
-		var children = obj.children;
-
-		// for문을 0부터 돌리면 배열이 라이브상태로 줄어들게 되어
-		// 인덱스(i)와 삭제하려는 타겟이 실제로 매칭되지 않음
-		for (var i = children.length; i > 0; i--){
-			obj.removeChild(children[i-1]);
+	return this.each(function(key, obj){
+			this.innerHTML = '';
 		}
 	});
 }
