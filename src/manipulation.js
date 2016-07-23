@@ -39,21 +39,41 @@ $.fn.append = function(stringOrObject){
 
 // 자기 자신을 삭제할 때
 $.fn.remove = function() {
-	if (this.length === 1) {
-		this[0].parentNode.removeChild(this[0]);
+	// DOM LEVEL 4
+	if ('remove' in Element.prototype) {
+		this.each(function(key, obj){
+			this.remove();
+		});
 	} else {
-	return this.each(function(key, obj) {
-		obj.parentNode.removeChild(obj);
-	});
+		// Native remove() 가 지원되지 않을 경우
+		if (this.length === 1) {
+			this[0].parentNode.removeChild(this[0]);
+		} else {
+			return this.each(function(key, obj) {
+				obj.parentNode.removeChild(obj);
+			});
+		}
 	}
 }
 
 // 모든 자식 Node를 삭제할 때
 $.fn.empty = function() {
-	return this.each(function(key, obj){
-			this.innerHTML = '';
-		}
-	});
+	// DOME LEVEL 4
+	// for문을 2번 돌리므로 성능 이슈 여지가 있음
+	if ('remove' in Element.prototype) {
+		this.each(function(key, obj) {
+			var child = obj.children;
+			$(child).each(function(k, o){
+					o.remove();
+			});
+		});
+	} else {
+		// Native remove() 가 지원되지 않을 경우
+		// 메모리 누수 현상이 있을 수 있음
+		return this.each(function(key, obj){
+				this.innerHTML = '';
+		});
+	}
 }
 
 
