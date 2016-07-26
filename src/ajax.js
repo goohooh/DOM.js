@@ -1,15 +1,23 @@
 // XML은 지원하지 않음
+// ajax_params = {
+//	method: 'GET, POST, PUT, ...',
+//	url: URL for API,
+//	success: function(data) { ... },
+//	error: function(error) { ... }, [optional]
+//	complete: function(data) { ... } [optional]
+// }
 $.ajax = function(ajax_params){
 	var request = new XMLHttpRequest(),
+		success = ajax_params.success,
 		async = true;
 
 	if ( !ajax_params.method ) {
-		return console.log("Method parameter shouldn't be Null");
+		return console.log("Method argument shouldn't be Null");
 	} else {
 		var method = ajax_params.method
 	}
 	if ( !ajax_params.url ) {
-		return console.log("URL parameter shouldn't be Null");
+		return console.log("URL argument shouldn't be Null");
 	} else {
 		var url = ajax_params.url
 	}
@@ -20,7 +28,18 @@ $.ajax = function(ajax_params){
 	// 비동기 통신을 위한 onreadystatechange 이벤트 등록
 	request.onreadystatechange = function( event ) {
 		if (request.readyState == 4) {
-			console.log(request.responseText);
+			if (200 <= request.status && request.status < 300) {
+				success(request.responseText);
+			} else {
+				if (ajax_params.error) {
+					ajax_params.error(request);
+				}
+			}
+
+			if (ajax_params.complete) {
+				ajax_params.complete(request);
+			}
+			// console.log(request.responseText);
 		}
 	}
 
