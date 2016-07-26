@@ -1,6 +1,8 @@
 // XML은 지원하지 않음
 $.ajax = function(ajax_params){
-	var request = new XMLHttpRequest();
+	var request = new XMLHttpRequest(),
+		async = true;
+
 	if ( !ajax_params.method ) {
 		return console.log("Method parameter shouldn't be Null");
 	} else {
@@ -11,13 +13,16 @@ $.ajax = function(ajax_params){
 	} else {
 		var url = ajax_params.url
 	}
-	if ( !ajax_params.async ) {
-		async = false;
-	} else {
-		async = ajax_params.async
-	}
 
 	request.open(method, url, async);
 	request.send();
-	console.log(request.responseText);
+
+	// 비동기 통신을 위한 onreadystatechange 이벤트 등록
+	request.onreadystatechange = function( event ) {
+		if (request.readyState == 4) {
+			console.log(request.responseText);
+		}
+	}
+
+
 }
