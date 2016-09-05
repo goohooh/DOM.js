@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+ var gulp = require('gulp'),
 	pump = require('pump'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify');
@@ -9,7 +9,12 @@ gulp.task('compress', function (cb) {
 		mangle : false
 	};
   pump([
-        gulp.src('src/*.js'),
+        gulp.src([
+          'src/core.js',
+          'src/core_method.js',
+          'src/manipulation.js',
+          'src/ajax.js'
+        ]),
         concat('dom.js'),
         uglify(options),
         gulp.dest('dist')
@@ -17,4 +22,3 @@ gulp.task('compress', function (cb) {
     cb
   );
 });
-
