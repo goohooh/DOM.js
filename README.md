@@ -44,6 +44,8 @@ $('li').each(function(key, object){
  - `remove()`: 선택된 객체 자신을 삭제
  - `empty()` : 선택된 요소의 모든 자식요소 삭제
 
+-
+
 ###Ajax
 
 **Usage**
