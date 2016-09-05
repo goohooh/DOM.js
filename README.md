@@ -43,3 +43,33 @@ $('li').each(function(key, object){
  - `append()`: 인자로 `html | text | dom() | NodeList/HTMLCollection | Node | Array` 전달하여 선택 요소 마지막에 삽입
  - `remove()`: 선택된 객체 자신을 삭제
  - `empty()` : 선택된 요소의 모든 자식요소 삭제
+
+###Ajax
+
+**Usage**
+
+```javascript
+// jQuery와 기본적으로 유사
+
+/*
+ajax_params = {
+	method: GET, POST, PUT, ...,
+	url: URL for API,
+	success: function(data) { ... }, [required]
+	error: function(error) { ... }, [optional]
+	complete: function(data) { ... } [optional]
+}
+*/
+
+$.ajax({
+	'method': 'GET',
+	'url': 'URL/for/API',
+	'success': function(data){
+		// data.status => status code
+		// data.statusText => status Text
+		// data.response => response data
+
+		// do something...
+	}
+})
+```
