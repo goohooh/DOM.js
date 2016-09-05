@@ -1,8 +1,8 @@
 /*
 each 메서드 만들기
  */
-(function(global) {
-	global.$.fn.each = function(callback){
+(function(global, $) {
+	$.fn.each = function(callback){
 		var len = this.length;
 
 		// 첫번째 인수에 this[i]로 객체 전달, 이어 인자 전달 (i, this[i]) 
@@ -12,4 +12,4 @@ each 메서드 만들기
 		// 객체 반환으로 체이닝 가능
 		return this;
 	}
-})(this);
+})(this, this.$);

@@ -8,7 +8,7 @@ ajax_params = {
 	complete: function(data) { ... } [optional]
 }
  */
-(function(global) {
+(function(global, $) {
 	var ajax = (function() {
 
 		var createXHR = (function() {
@@ -74,5 +74,5 @@ ajax_params = {
 		}
 	})();
 
-	global.$.ajax = ajax;
-})(this);
+	$.ajax = ajax;
+})(this, this.$);

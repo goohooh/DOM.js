@@ -1,4 +1,4 @@
-(function(global) {
+(function(global, $) {
 
 	$.fn.html = function(htmlString) {
 		if(htmlString){
@@ -79,6 +79,6 @@
 		}
 	}
 
-})(this);
+})(this, this.$);
 
 

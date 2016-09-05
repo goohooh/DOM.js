@@ -1,5 +1,6 @@
 (function(global) {
-	var doc = global.document;
+	var dom,
+		doc = global.document;
 
 	// jQuery 처럼 $ 기호를 사용하기로 결정
 	var $ = function(params, context){
