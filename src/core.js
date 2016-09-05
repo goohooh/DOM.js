@@ -1,5 +1,4 @@
-(function(win) {
-	var global = win;
+(function(global) {
 	var doc = global.document;
 
 	// jQuery 처럼 $ 기호를 사용하기로 결정
@@ -97,4 +96,4 @@
 	$.fn = GetOrMakeDom.prototype;
 
 
-})(window);
+})(this);
