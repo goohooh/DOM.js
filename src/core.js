@@ -1,4 +1,6 @@
 (function(global) {
+	'use strict';
+	
 	var dom,
 		doc = global.document;
 

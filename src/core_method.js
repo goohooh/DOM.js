@@ -2,6 +2,9 @@
 each 메서드 만들기
  */
 (function(global, $) {
+
+	'use strict';
+
 	$.fn.each = function(callback){
 		var len = this.length;
 

@@ -9,6 +9,8 @@ ajax_params = {
 }
  */
 (function(global, $) {
+	'use strict';
+	
 	var ajax = (function() {
 
 		var createXHR = (function() {
