@@ -10,6 +10,7 @@ gulp.task('compress', function (cb) {
 	};
   pump([
         gulp.src([
+          'src/pollyfill.js',
           'src/core.js',
           'src/core_method.js',
           'src/manipulation.js',
