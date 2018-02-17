@@ -1,10 +1,10 @@
 # DOM.js
-##Dom helper
+## Dom helper
 Cody Lindley의 'DOM을 깨우치다' 마지막 챕터 실습
 
 ---
 
-###Selector : $
+### Selector : $
 
  - `$` : `jQuery`처럼 선택. 두번째 인자로 context 값 지정 가능
 
@@ -20,9 +20,8 @@ var hi = $('<h1>Hi</h1>');
 $('body').append(hi);
 ```
 
--
 
-###Iteration : each
+### Iteration : each
 
  - `each()` : iteration 하여 callback 함수 전달
 
@@ -34,9 +33,8 @@ $('li').each(function(key, object){
 })
 ```
 
--
 
-###Manipulation : html, text, append, remove, empty
+### Manipulation : html, text, append, remove, empty
 
  - `html()` : html 문자열 삽입, 인자가 없을경우 선택된 개체의 첫번째 element요소를 반환
  - `text()` : `html()` 메서드와 유사. 텍스트 노드를 다룬다.
@@ -46,7 +44,7 @@ $('li').each(function(key, object){
 
 -
 
-###Ajax
+### Ajax
 
 **Usage**
 
